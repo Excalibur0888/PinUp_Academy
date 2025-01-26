@@ -10,7 +10,7 @@
 <body>
     <!-- Хедер -->
     <header class="header">
-			<div class="container header__container">
+			<div class="header__container container">
 					<a href="index.html" class="logo">PIN-UP Academy</a>
 					<nav class="nav">
 							<ul class="nav__menu">
@@ -22,12 +22,29 @@
 					</nav>
 					<div class="header__auth">
 							<a href="account.html" class="btn btn--primary btn--with-icon auth-link profile-link">
-									Профиль
+									<span class="user-name">Войти</span>
 							</a>
+					</div>
+					<div class="burger-menu">
+							<span></span>
+							<span></span>
+							<span></span>
 					</div>
 			</div>
 	</header>
+	<div class="mobile-nav">
+		<ul class="mobile-nav__menu">
+				<li><a href="courses.html" class="mobile-nav__link">Курсы</a></li>
+				<li><a href="webinars.html" class="mobile-nav__link">Вебинары</a></li>
+				<li><a href="blog.html" class="mobile-nav__link">Блог</a></li>
+				<li><a href="contacts.html" class="mobile-nav__link">Контакты</a></li>
+		</ul>
+		<div class="mobile-nav__profile">
+				<a href="login.html" class="btn btn--primary">Войти</a>
+		</div>
+</div>
 
+<div class="mobile-nav__overlay"></div>
     <main class="main">
         <div class="thanks">
             <div class="thanks__content">
@@ -41,7 +58,7 @@
     <!-- Футер -->
     <footer class="footer">
 			<div class="container">
-					<div class="footer__grid">
+					<section class="footer__grid">
 							<div class="footer__column">
 									<a href="index.html" class="footer__logo">PIN-UP Academy</a>
 									<p class="footer__description">Ваш путь к профессиональному росту и развитию</p>
@@ -98,7 +115,7 @@
 											<button type="submit" class="btn btn--primary">Подписаться</button>
 									</form>
 							</div>
-					</div>
+					</section>
 					<div class="footer__bottom">
 							<p class="footer__copyright">© 2024 PIN-UP Academy. Все права защищены.</p>
 							<div class="footer__links">

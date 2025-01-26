@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIN-UP Academy - Онлайн-курсы для вашего развития</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 </head>
 <body>
     <header class="header">
@@ -23,7 +21,7 @@
             </nav>
             <div class="header__auth">
                 <a href="account.html" class="btn btn--primary btn--with-icon auth-link profile-link">
-                    Профиль
+                    <span class="user-name">Войти</span>
                 </a>
             </div>
             <div class="burger-menu">
@@ -78,9 +76,9 @@
 
     <section class="course-slider">
         <div class="container">
-            <div class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+            <div class="slider">
+                <div class="slider-track">
+                    <div class="slide">
                         <div class="slide-content">
                             <div class="slide-info">
                                 <span class="slide-badge">Новый курс</span>
@@ -107,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="slide">
                         <div class="slide-content">
                             <div class="slide-info">
                                 <span class="slide-badge">Экспресс</span>
@@ -134,7 +132,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
+                    <div class="slide">
                         <div class="slide-content">
                             <div class="slide-info">
                                 <span class="slide-badge">Интенсив</span>
@@ -162,9 +160,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="slider-pagination"></div>
+                <button class="slider-button slider-button-prev" aria-label="Предыдущий слайд">❮</button>
+                <button class="slider-button slider-button-next" aria-label="Следующий слайд">❯</button>
             </div>
         </div>
     </section>
@@ -334,7 +332,7 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer__grid">
+            <section class="footer__grid">
                 <div class="footer__column">
                     <a href="index.html" class="footer__logo">PIN-UP Academy</a>
                     <p class="footer__description">Ваш путь к профессиональному росту и развитию</p>
@@ -391,7 +389,7 @@
                         <button type="submit" class="btn btn--primary">Подписаться</button>
                     </form>
                 </div>
-            </div>
+            </section>
             <div class="footer__bottom">
                 <p class="footer__copyright">© 2024 PIN-UP Academy. Все права защищены.</p>
                 <div class="footer__links">
@@ -403,6 +401,5 @@
     </footer>
 
     <script src="js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </body>
 </html> 

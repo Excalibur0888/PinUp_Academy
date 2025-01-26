@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вход - PIN-UP Academy</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 	<header class="header">
@@ -20,8 +19,27 @@
 								<li><a href="contacts.html" class="nav__link">Контакты</a></li>
 						</ul>
 				</nav>
+				<div class="burger-menu">
+						<span></span>
+						<span></span>
+						<span></span>
+				</div>
 		</div>
 </header>
+
+<!-- Добавляем мобильное меню -->
+<div class="mobile-nav">
+		<ul class="mobile-nav__menu">
+				<li><a href="courses.html" class="mobile-nav__link">Курсы</a></li>
+				<li><a href="webinars.html" class="mobile-nav__link">Вебинары</a></li>
+				<li><a href="blog.html" class="mobile-nav__link">Блог</a></li>
+				<li><a href="contacts.html" class="mobile-nav__link">Контакты</a></li>
+		</ul>
+		<div class="mobile-nav__profile">
+				<a href="login.html" class="btn btn--primary">Войти</a>
+		</div>
+</div>
+<div class="mobile-nav__overlay"></div>
 
     <main class="main auth-page">
         <div class="container">
@@ -72,7 +90,7 @@
 
     <footer class="footer">
 			<div class="container">
-					<div class="footer__grid">
+					<section class="footer__grid">
 							<div class="footer__column">
 									<a href="index.html" class="footer__logo">PIN-UP Academy</a>
 									<p class="footer__description">Ваш путь к профессиональному росту и развитию</p>
@@ -129,7 +147,7 @@
 											<button type="submit" class="btn btn--primary">Подписаться</button>
 									</form>
 							</div>
-					</div>
+					</section>
 					<div class="footer__bottom">
 							<p class="footer__copyright">© 2024 PIN-UP Academy. Все права защищены.</p>
 							<div class="footer__links">
@@ -141,5 +159,6 @@
 	</footer>
 
     <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html> 

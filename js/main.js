@@ -298,6 +298,37 @@ function initSearch() {
     });
 }
 
+// Функция обновления имени пользователя в шапке
+function updateUserName() {
+    const userNameElement = document.querySelector('.user-name');
+    if (!userNameElement) return;
+
+    // Получаем данные пользователя из localStorage
+    const userData = localStorage.getItem('user');
+    if (userData) {
+        const user = JSON.parse(userData);
+        userNameElement.textContent = user.name || 'Профиль';
+    } else {
+        userNameElement.textContent = 'Войти';
+    }
+}
+
+// Обновление имени пользователя при изменении localStorage
+window.addEventListener('storage', (e) => {
+    if (e.key === 'user') {
+        updateUserName();
+    }
+});
+
+// Вызываем функцию при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    updateUserName();
+    initCountdownTimer();
+    initAccordion();
+    initPromoCodeCopy();
+    initSearch();
+});
+
 // Делаем функции доступными глобально
 window.initCountdownTimer = initCountdownTimer;
 window.initAccordion = initAccordion;
@@ -345,27 +376,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileNavOverlay = document.querySelector('.mobile-nav__overlay');
     const body = document.body;
 
-    function toggleMobileMenu() {
-        burgerMenu.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-        mobileNavOverlay.classList.toggle('active');
-        body.style.overflow = body.style.overflow === 'hidden' ? '' : 'hidden';
+    if (burgerMenu && mobileNav && mobileNavOverlay) {
+        function toggleMobileMenu() {
+            burgerMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            mobileNavOverlay.classList.toggle('active');
+            body.style.overflow = body.style.overflow === 'hidden' ? '' : 'hidden';
+        }
+
+        burgerMenu.addEventListener('click', toggleMobileMenu);
+        mobileNavOverlay.addEventListener('click', toggleMobileMenu);
+
+        // Закрытие мобильного меню при клике на ссылку
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMobileMenu();
+            });
+        });
     }
 
-    burgerMenu.addEventListener('click', toggleMobileMenu);
-    mobileNavOverlay.addEventListener('click', toggleMobileMenu);
-
-    // Close mobile menu on link click
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
-    mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            toggleMobileMenu();
-        });
-    });
-
-    // Update mobile menu profile button based on auth status
+    // Обновление кнопки профиля в мобильном меню
     function updateMobileNavProfile() {
         const mobileNavProfile = document.querySelector('.mobile-nav__profile');
+        if (!mobileNavProfile) return;
+
         const user = JSON.parse(localStorage.getItem('user'));
         
         if (user) {
@@ -381,14 +416,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Update mobile profile on auth state change
+    // Обновление профиля при изменении состояния авторизации
     window.addEventListener('storage', (e) => {
         if (e.key === 'user') {
             updateMobileNavProfile();
         }
     });
 
-    // Initial mobile profile update
+    // Начальное обновление профиля
     updateMobileNavProfile();
 
     // Каталог: сортировка и фильтрация
@@ -1254,34 +1289,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         blogCategories.forEach(category => {
             category.addEventListener('click', () => {
-                // Убираем активный класс у всех категорий
                 blogCategories.forEach(cat => cat.classList.remove('active'));
-                
-                // Добавляем активный класс текущей категории
                 category.classList.add('active');
                 
                 const selectedCategory = category.dataset.category;
                 
-                // Показываем все статьи если выбрана категория "all"
                 if (selectedCategory === 'all') {
                     blogCards.forEach(card => {
-                        card.style.display = '';
-                        // Добавляем анимацию
-                        card.classList.add('animate');
-                        setTimeout(() => card.classList.remove('animate'), 300);
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
                     });
                     return;
                 }
                 
-                // Фильтруем статьи по категории
                 blogCards.forEach(card => {
                     if (card.dataset.category === selectedCategory) {
-                        card.style.display = '';
-                        // Добавляем анимацию
-                        card.classList.add('animate');
-                        setTimeout(() => card.classList.remove('animate'), 300);
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
                     } else {
-                        card.style.display = 'none';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
                     }
                 });
             });
@@ -1616,4 +1652,91 @@ document.addEventListener('DOMContentLoaded', () => {
     initSwiper();
     initSubscribeForms();
     initWebinarsCalendar();
+}); 
+
+// Функция инициализации слайдера
+function initSlider() {
+    const slider = document.querySelector('.slider');
+    if (!slider) return;
+
+    const track = slider.querySelector('.slider-track');
+    const slides = slider.querySelectorAll('.slide');
+    const prevButton = slider.querySelector('.slider-button-prev');
+    const nextButton = slider.querySelector('.slider-button-next');
+    const pagination = slider.querySelector('.slider-pagination');
+
+    let currentSlide = 0;
+    let autoplayInterval;
+
+    // Создаем пагинацию
+    slides.forEach((_, index) => {
+        const bullet = document.createElement('div');
+        bullet.className = `slider-pagination-bullet${index === 0 ? ' active' : ''}`;
+        bullet.addEventListener('click', () => goToSlide(index));
+        pagination.appendChild(bullet);
+    });
+
+    // Показываем первый слайд
+    slides[0].classList.add('active');
+
+    // Функция перехода к слайду
+    function goToSlide(index) {
+        // Убираем активный класс у текущего слайда
+        slides[currentSlide].classList.remove('active');
+        
+        // Обновляем индекс текущего слайда
+        currentSlide = index;
+        
+        // Если достигли конца, возвращаемся в начало
+        if (currentSlide >= slides.length) currentSlide = 0;
+        if (currentSlide < 0) currentSlide = slides.length - 1;
+        
+        // Добавляем активный класс новому слайду
+        slides[currentSlide].classList.add('active');
+        
+        // Обновляем положение трека
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Обновляем пагинацию
+        const bullets = pagination.querySelectorAll('.slider-pagination-bullet');
+        bullets.forEach((bullet, i) => {
+            bullet.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    // Обработчики кнопок
+    prevButton.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+        resetAutoplay();
+    });
+
+    nextButton.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+        resetAutoplay();
+    });
+
+    // Автопереключение слайдов
+    function startAutoplay() {
+        autoplayInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000);
+    }
+
+    function resetAutoplay() {
+        clearInterval(autoplayInterval);
+        startAutoplay();
+    }
+
+    // Запускаем автопереключение
+    startAutoplay();
+
+    // Останавливаем автопереключение при наведении на слайдер
+    slider.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    slider.addEventListener('mouseleave', startAutoplay);
+}
+
+// Вызываем функцию при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    initSlider();
+    // ... остальные инициализации ...
 }); 

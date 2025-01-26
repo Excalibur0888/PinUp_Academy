@@ -193,26 +193,64 @@ class Course {
     renderModules() {
         const modulesContainer = document.getElementById('courseModules');
         
-        const modulesHtml = this.courseData.modules.map(module => `
-            <div class="course-module">
-                <div class="course-module__header">
-                    <h3 class="course-module__title">${module.title}</h3>
-                    <span class="course-module__duration">${module.duration}</span>
+        const modulesHtml = this.courseData.modules.map((module, index) => `
+            <div class="module">
+                <div class="module-header">
+                    <div class="module-header__title">
+                        <span>${index + 1}</span>
+                        ${module.title}
+                    </div>
+                    <div class="module-header__info">
+                        <div class="module-header__lessons">
+                            <i class="icon">📚</i>
+                            ${module.duration}
+                        </div>
+                        <div class="module-header__duration">
+                            <i class="icon">⏱️</i>
+                            ${module.lessons.reduce((total, lesson) => {
+                                const minutes = parseInt(lesson.duration);
+                                return total + minutes;
+                            }, 0)} минут
+                        </div>
+                    </div>
                 </div>
-                <div class="course-module__content">
-                    <ul class="course-lessons">
+                <div class="module-content">
+                    <div class="lesson-list">
                         ${module.lessons.map(lesson => `
-                            <li class="course-lesson">
-                                <span class="course-lesson__title">${lesson.title}</span>
-                                <span class="course-lesson__duration">${lesson.duration}</span>
-                            </li>
+                            <div class="lesson-item">
+                                <div class="lesson-item__icon">
+                                    <i class="icon">📝</i>
+                                </div>
+                                <div class="lesson-item__content">
+                                    <h4 class="lesson-item__title">${lesson.title}</h4>
+                                    <div class="lesson-item__info">
+                                        <div class="lesson-item__duration">
+                                            <i class="icon">⏱️</i>
+                                            ${lesson.duration}
+                                        </div>
+                                        <div class="lesson-item__status">
+                                            <i class="icon">🔒</i>
+                                            Закрыт
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         `).join('')}
-                    </ul>
+                    </div>
                 </div>
             </div>
         `).join('');
 
         modulesContainer.innerHTML = modulesHtml;
+
+        // Добавляем обработчики для открытия/закрытия модулей
+        const moduleHeaders = document.querySelectorAll('.module-header');
+        moduleHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                content.classList.toggle('active');
+            });
+        });
     }
 
     initEventListeners() {
