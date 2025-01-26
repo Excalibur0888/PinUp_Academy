@@ -3481,6 +3481,13 @@ textarea.form-input {
 	z-index: 1000;
 }
 
+@media (max-width: 768px) {
+	.chat-window {
+		right: 20px;
+		width: 330px;
+	}
+}
+
 .chat-window.active {
 	display: flex;
 }

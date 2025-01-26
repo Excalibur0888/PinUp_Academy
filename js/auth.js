@@ -4,18 +4,15 @@ const CURRENT_USER_KEY = 'user';
 const TOKEN_KEY = 'token';
 
 function getUsers() {
-    console.log('Получение списка пользователей');
     const users = localStorage.getItem(USERS_KEY);
     return users ? JSON.parse(users) : [];
 }
 
 function saveUsers(users) {
-    console.log('Сохранение списка пользователей');
     localStorage.setItem(USERS_KEY, JSON.stringify(users));
 }
 
 function getCurrentUser() {
-    console.log('Получение текущего пользователя');
     try {
         const userJson = localStorage.getItem(CURRENT_USER_KEY);
         if (!userJson) {
@@ -24,20 +21,17 @@ function getCurrentUser() {
         const user = JSON.parse(userJson);
         // Проверяем, что у пользователя есть все необходимые поля
         if (!user || !user.id || !user.email) {
-            console.log('Данные пользователя повреждены');
             localStorage.removeItem(CURRENT_USER_KEY);
             return null;
         }
         return user;
     } catch (error) {
-        console.error('Ошибка при получении пользователя:', error);
         localStorage.removeItem(CURRENT_USER_KEY);
         return null;
     }
 }
 
 function setCurrentUser(user) {
-    console.log('Установка текущего пользователя:', user ? user.name : 'выход');
     if (user) {
         localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
     } else {
@@ -48,33 +42,24 @@ function setCurrentUser(user) {
 // Функции для проверки авторизации
 function isAuthenticated() {
     const user = getCurrentUser();
-    console.log('Проверка авторизации:', !!user);
     return user !== null;
 }
 
 function redirectToLogin() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    console.log('Текущая страница:', currentPage);
     if (currentPage !== 'login.html' && currentPage !== 'register.html') {
-        console.log('Перенаправление на страницу входа');
         window.location.href = 'login.html';
     }
 }
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOMContentLoaded: начало инициализации');
     
     // Проверяем авторизацию на защищенных страницах
     const protectedPages = ['account.html', 'cart.html'];
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const isAuthenticated = getCurrentUser() !== null;
-    
-    console.log('Текущая страница:', currentPage);
-    console.log('Пользователь авторизован:', isAuthenticated);
-
     if (protectedPages.includes(currentPage) && !isAuthenticated) {
-        console.log('Доступ запрещен: перенаправление на страницу входа');
         window.location.href = 'login.html';
         return;
     }
@@ -85,17 +70,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Инициализируем формы
     initForms();
     
-    console.log('DOMContentLoaded: инициализация завершена');
 });
 
 // Обновление UI в зависимости от статуса авторизации
 function updateAuthUI() {
-    console.log('Обновление UI авторизации');
     const loginLinks = document.querySelectorAll('.login-link');
     const profileLinks = document.querySelectorAll('.profile-link');
     const user = JSON.parse(localStorage.getItem('user'));
-
-    console.log('Текущий пользователь:', user ? user.name : 'не авторизован');
 
     if (user) {
         // Если пользователь авторизован
