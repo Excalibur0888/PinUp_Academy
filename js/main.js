@@ -341,34 +341,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Бургер-меню
     const burgerMenu = document.querySelector('.burger-menu');
-    const mobileNav = document.querySelector('.adaptive');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavOverlay = document.querySelector('.mobile-nav__overlay');
     const body = document.body;
 
-    if (burgerMenu && mobileNav) {
-        burgerMenu.addEventListener('click', () => {
-            burgerMenu.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-            body.classList.toggle('no-scroll');
-        });
-
-        // Закрытие меню при клике на ссылку
-        document.querySelectorAll('.adaptive__link').forEach(link => {
-            link.addEventListener('click', () => {
-                burgerMenu.classList.remove('active');
-                mobileNav.classList.remove('active');
-                body.classList.remove('no-scroll');
-            });
-        });
-
-        // Закрытие меню при клике вне его
-        document.addEventListener('click', (e) => {
-            if (!burgerMenu.contains(e.target) && !mobileNav.contains(e.target)) {
-                burgerMenu.classList.remove('active');
-                mobileNav.classList.remove('active');
-                body.classList.remove('no-scroll');
-            }
-        });
+    function toggleMobileMenu() {
+        burgerMenu.classList.toggle('active');
+        mobileNav.classList.toggle('active');
+        mobileNavOverlay.classList.toggle('active');
+        body.style.overflow = body.style.overflow === 'hidden' ? '' : 'hidden';
     }
+
+    burgerMenu.addEventListener('click', toggleMobileMenu);
+    mobileNavOverlay.addEventListener('click', toggleMobileMenu);
+
+    // Close mobile menu on link click
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav__link');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMobileMenu();
+        });
+    });
+
+    // Update mobile menu profile button based on auth status
+    function updateMobileNavProfile() {
+        const mobileNavProfile = document.querySelector('.mobile-nav__profile');
+        const user = JSON.parse(localStorage.getItem('user'));
+        
+        if (user) {
+            mobileNavProfile.innerHTML = `
+                <a href="account.html" class="btn btn--primary">
+                    ${user.name || 'Профиль'}
+                </a>
+            `;
+        } else {
+            mobileNavProfile.innerHTML = `
+                <a href="login.html" class="btn btn--primary">Войти</a>
+            `;
+        }
+    }
+
+    // Update mobile profile on auth state change
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'user') {
+            updateMobileNavProfile();
+        }
+    });
+
+    // Initial mobile profile update
+    updateMobileNavProfile();
 
     // Каталог: сортировка и фильтрация
     const catalogGrid = document.querySelector('.catalog__grid');

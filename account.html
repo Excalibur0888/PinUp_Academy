@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+			<meta name="description" content="Личный кабинет PIN-UP Academy - управляйте своим обучением и отслеживайте прогресс">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет - PIN-UP Academy</title>
     <link rel="stylesheet" href="css/style.css">
@@ -19,9 +20,10 @@
                     <li><a href="contacts.html" class="nav__link">Контакты</a></li>
                 </ul>
             </nav>
-            <div class="user-menu">
-                <img src="img/avatar.jpg" alt="Аватар" class="user-menu__avatar">
-                <span class="user-menu__name">Александр</span>
+            <div class="header__auth">
+                <a href="account.html" class="btn btn--primary btn--with-icon auth-link profile-link">
+                    Профиль
+                </a>
             </div>
         </div>
     </header>
@@ -31,9 +33,13 @@
             <div class="dashboard">
                 <aside class="dashboard__sidebar">
                     <div class="user-profile">
-                        <img src="img/avatar.jpg" alt="Аватар" class="user-profile__avatar">
-                        <h2 class="user-profile__name">Александр Иванов</h2>
-                        <p class="user-profile__email">alex@example.com</p>
+                        <svg class="user-profile__avatar" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="60" fill="#E2E8F0"/>
+                            <path d="M60 70C71.0457 70 80 61.0457 80 50C80 38.9543 71.0457 30 60 30C48.9543 30 40 38.9543 40 50C40 61.0457 48.9543 70 60 70Z" fill="#94A3B8"/>
+                            <path d="M60 120C81.9868 120 100 101.987 100 80H20C20 101.987 38.0132 120 60 120Z" fill="#94A3B8"/>
+                        </svg>
+                        <h2 class="user-profile__name">Пользователь</h2>
+                        <p class="user-profile__email">pinupacademy@gmail.com</p>
                     </div>
                     <nav class="dashboard__nav">
                         <a href="#courses" class="dashboard__nav-link active">Мои курсы</a>
@@ -44,7 +50,7 @@
                 </aside>
 
                 <div class="dashboard__content">
-                    <section id="courses" class="dashboard__section">
+                    <section id="courses" class="dashboard__section" style="transition: opacity 0.3s ease;">
                         <div class="dashboard__header">
                             <h1 class="dashboard__title">Мои курсы</h1>
                             <div class="dashboard__stats">
@@ -53,7 +59,7 @@
                                     <span class="stat-card__label">Активных курса</span>
                                 </div>
                                 <div class="stat-card">
-                                    <span class="stat-card__value">65%</span>
+                                    <span class="stat-card__value">35%</span>
                                     <span class="stat-card__label">Общий прогресс</span>
                                 </div>
                                 <div class="stat-card">
@@ -66,47 +72,121 @@
                         <div class="course-progress-section">
                             <h2 class="section-subtitle">Активные курсы</h2>
                             <div class="course-progress-grid">
-                                <div class="course-progress-card">
-                                    <img src="img/digital-marketing.jpg" alt="Digital-маркетинг PRO" class="course-progress-card__image">
-                                    <div class="course-progress-card__content">
-                                        <h3 class="course-progress-card__title">Digital-маркетинг PRO</h3>
-                                        <p class="course-progress-card__info">Прогресс: 8/36 уроков</p>
-                                        <div class="progress-bar">
-                                            <div class="progress-bar__fill" style="width: 22%"></div>
-                                        </div>
-                                        <a href="courses/digital-marketing.html" class="btn btn--primary btn--full">Продолжить обучение</a>
-                                    </div>
-                                </div>
+                                <!-- Активные курсы будут добавлены динамически -->
+                            </div>
 
-                                <div class="course-progress-card">
-                                    <img src="img/web-design.jpg" alt="Основы веб-дизайна" class="course-progress-card__image">
-                                    <div class="course-progress-card__content">
-                                        <h3 class="course-progress-card__title">Основы веб-дизайна</h3>
-                                        <p class="course-progress-card__info">Прогресс: 4/30 уроков</p>
-                                        <div class="progress-bar">
-                                            <div class="progress-bar__fill" style="width: 13%"></div>
-                                        </div>
-                                        <a href="courses/web-design.html" class="btn btn--primary btn--full">Продолжить обучение</a>
-                                    </div>
-                                </div>
+                            <h2 class="section-subtitle">В обработке</h2>
+                            <div class="course-progress-grid course-progress-grid--pending">
+                                <!-- Курсы в обработке будут добавлены динамически -->
                             </div>
 
                             <h2 class="section-subtitle">Завершенные курсы</h2>
                             <div class="course-progress-grid">
-                                <div class="course-progress-card completed">
-                                    <img src="img/finance-basics.jpg" alt="Основы финансовой грамотности" class="course-progress-card__image">
-                                    <div class="course-progress-card__content">
-                                        <h3 class="course-progress-card__title">Основы финансовой грамотности</h3>
-                                        <p class="course-progress-card__info">Курс завершен</p>
-                                        <div class="progress-bar">
-                                            <div class="progress-bar__fill" style="width: 100%"></div>
+                                <!-- Завершенные курсы будут добавлены динамически -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="certificates" class="dashboard__section" style="transition: opacity 0.3s ease;">
+                        <div class="dashboard__header">
+                            <h1 class="dashboard__title">Сертификаты</h1>
+                            <div class="dashboard__stats">
+                                <div class="stat-card">
+                                    <span class="stat-card__value">1</span>
+                                    <span class="stat-card__label">Получено сертификатов</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="certificates-grid">
+                            <div class="certificate-card">
+                                <div class="certificate-card__preview">
+                                    <img src="img/certificate-preview.jpg" alt="Сертификат по финансовой грамотности" class="certificate-card__image">
+                                    <div class="certificate-card__overlay">
+                                        <div class="certificate-card__actions">
+                                            <button class="btn btn--outline btn--icon" title="Поделиться">
+                                                <i class="icon">📤</i>
+                                            </button>
+                                            <a href="index.html" class="btn btn--primary" download>
+                                                Скачать PDF
+                                            </a>
                                         </div>
-                                        <a href="#" class="btn btn--outline btn--full">Скачать сертификат</a>
+                                    </div>
+                                </div>
+                                <div class="certificate-card__content">
+                                    <div class="certificate-card__header">
+                                        <span class="certificate-card__badge">Сертификат</span>
+                                        <h3 class="certificate-card__title">Финансовая грамотность</h3>
+                                    </div>
+                                    <div class="certificate-card__meta">
+                                        <div class="certificate-card__info">
+                                            <i class="icon">📅</i>
+                                            <span>Получен: 15 марта 2024</span>
+                                        </div>
+                                        <div class="certificate-card__info">
+                                            <i class="icon">🔑</i>
+                                            <span>ID: CERT-2024-001</span>
+                                        </div>
+                                        <div class="certificate-card__info">
+                                            <i class="icon">⭐</i>
+                                            <span>С отличием</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
+
+                    <section id="settings" class="dashboard__section" style="transition: opacity 0.3s ease;">
+                        <div class="dashboard__header">
+                            <h1 class="dashboard__title">Настройки профиля</h1>
+                        </div>
+                        <div class="settings-form">
+                            <form class="profile-form">
+                                <div class="form-group">
+                                    <label class="form-label">Фото профиля</label>
+                                    <div class="avatar-upload">
+                                        <div class="avatar-preview">
+                                            <svg class="user-profile__avatar" viewBox="0 0 120 120">
+                                                <circle cx="60" cy="60" r="60" fill="#E2E8F0"/>
+                                                <path d="M60 70C71.0457 70 80 61.0457 80 50C80 38.9543 71.0457 30 60 30C48.9543 30 40 38.9543 40 50C40 61.0457 48.9543 70 60 70Z" fill="#94A3B8"/>
+                                                <path d="M60 120C81.9868 120 100 101.987 100 80H20C20 101.987 38.0132 120 60 120Z" fill="#94A3B8"/>
+                                            </svg>
+                                        </div>
+                                        <button type="button" class="btn btn--outline">Изменить фото</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="userName">Имя</label>
+                                    <input type="text" id="userName" class="form-input" value="Пользователь">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="userEmail">Email</label>
+                                    <input type="email" id="userEmail" class="form-input" value="pinupacademy@gmail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="userPhone">Телефон</label>
+                                    <input type="tel" id="userPhone" class="form-input" placeholder="+7 (XXX) XXX-XX-XX">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Уведомления</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox">
+                                            <input type="checkbox" checked>
+                                            <span>Email-уведомления о новых уроках</span>
+                                        </label>
+                                        <label class="checkbox">
+                                            <input type="checkbox" checked>
+                                            <span>Уведомления о специальных предложениях</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn--primary">Сохранить изменения</button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+
                 </div>
             </div>
         </div>
@@ -119,19 +199,19 @@
                     <a href="index.html" class="footer__logo">PIN-UP Academy</a>
                     <p class="footer__description">Ваш путь к профессиональному росту и развитию</p>
                     <div class="footer__social">
-                        <a href="#" class="social-link" aria-label="Instagram">
+                        <a href="index.html" class="social-link" aria-label="Instagram">
                             <i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12Z" fill="white"/>
                                 <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="white"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M5 1C2.79086 1 1 2.79086 1 5V19C1 21.2091 2.79086 23 5 23H19C21.2091 23 23 21.2091 23 19V5C23 2.79086 21.2091 1 19 1H5ZM19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="white"/>
                             </svg></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="Facebook">
+                        <a href="index.html" class="social-link" aria-label="Facebook">
                             <i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" fill="white"/>
                             </svg></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="Telegram">
+                        <a href="index.html" class="social-link" aria-label="Telegram">
                             <i class="icon">                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19.9773 4.51562L3.98441 10.5147C2.85098 10.9771 2.85879 11.6301 3.7881 11.9157L7.79692 13.1147L17.0117 7.31089C17.4861 7.02964 17.9214 7.18183 17.5633 7.48964L10.0445 14.2584H10.0429L10.0445 14.2592L9.74535 18.3771C10.1861 18.3771 10.3796 18.1755 10.6237 17.9407L12.5725 16.0459L16.6281 19.0239C17.4549 19.4771 18.0477 19.2428 18.2541 18.3787L20.9461 5.89245C21.2461 4.83433 20.4789 4.28964 19.9773 4.51562Z" fill="white"/>
                     </svg></i>
