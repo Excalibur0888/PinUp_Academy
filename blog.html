@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог - PIN-UP Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">PIN-UP Academy</a>
+            <nav class="nav">
+                <ul class="nav__menu">
+                    <li><a href="courses.html" class="nav__link">Курсы</a></li>
+                    <li><a href="webinars.html" class="nav__link">Вебинары</a></li>
+                    <li><a href="blog.html" class="nav__link active">Блог</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+            <a href="login.html" class="btn btn--primary btn--with-icon">
+                Войти
+            </a>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="catalog-hero">
+            <div class="container">
+                <div class="catalog-hero__content">
+                    <h1 class="catalog-hero__title">Образовательный блог</h1>
+                    <p class="catalog-hero__description">Полезные статьи, советы экспертов и новости из мира образования</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog">
+            <div class="container">
+                <div class="blog-filters">
+                    <div class="blog-categories">
+                        <button class="blog-category active" data-category="all">Все статьи</button>
+                        <button class="blog-category" data-category="career">Карьера</button>
+                        <button class="blog-category" data-category="education">Образование</button>
+                        <button class="blog-category" data-category="technology">Технологии</button>
+                        <button class="blog-category" data-category="business">Бизнес</button>
+                    </div>
+                </div>
+
+                <div class="blog-grid">
+                    <article class="blog-card" data-category="career">
+                        <img src="img/blog/career.jpg" alt="Карьера в IT" class="blog-card__image">
+                        <div class="blog-card__content">
+                            <span class="blog-card__category">Карьера</span>
+                            <h3 class="blog-card__title">Как построить успешную карьеру в IT</h3>
+                            <p class="blog-card__excerpt">Эксперты отрасли делятся опытом и рекомендациями по развитию карьеры в сфере информационных технологий.</p>
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">15 марта 2024</span>
+                                <span class="blog-card__read-time">10 мин чтения</span>
+                            </div>
+                            <a href="blog/it-career.html" class="btn btn--outline">Читать далее</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="education">
+                        <img src="img/blog/online-learning.jpg" alt="Онлайн обучение" class="blog-card__image">
+                        <div class="blog-card__content">
+                            <span class="blog-card__category">Образование</span>
+                            <h3 class="blog-card__title">Преимущества онлайн-обучения</h3>
+                            <p class="blog-card__excerpt">Разбираем основные плюсы дистанционного образования и как извлечь из него максимальную пользу.</p>
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">12 марта 2024</span>
+                                <span class="blog-card__read-time">8 мин чтения</span>
+                            </div>
+                            <a href="blog/online-learning.html" class="btn btn--outline">Читать далее</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="technology">
+                        <img src="img/blog/ai.jpg" alt="Искусственный интеллект" class="blog-card__image">
+                        <div class="blog-card__content">
+                            <span class="blog-card__category">Технологии</span>
+                            <h3 class="blog-card__title">Искусственный интеллект в образовании</h3>
+                            <p class="blog-card__excerpt">Как AI-технологии меняют подход к обучению и какие возможности открывают для студентов.</p>
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">10 марта 2024</span>
+                                <span class="blog-card__read-time">12 мин чтения</span>
+                            </div>
+                            <a href="blog/ai-education.html" class="btn btn--outline">Читать далее</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="business">
+                        <img src="img/blog/startup.jpg" alt="Стартап" class="blog-card__image">
+                        <div class="blog-card__content">
+                            <span class="blog-card__category">Бизнес</span>
+                            <h3 class="blog-card__title">От идеи до успешного стартапа</h3>
+                            <p class="blog-card__excerpt">Пошаговое руководство по запуску собственного бизнес-проекта.</p>
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">8 марта 2024</span>
+                                <span class="blog-card__read-time">15 мин чтения</span>
+                            </div>
+                            <a href="blog/startup-guide.html" class="btn btn--outline">Читать далее</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="career">
+                        <img src="img/blog/soft-skills.jpg" alt="Soft Skills" class="blog-card__image">
+                        <div class="blog-card__content">
+                            <span class="blog-card__category">Карьера</span>
+                            <h3 class="blog-card__title">Развитие soft skills</h3>
+                            <p class="blog-card__excerpt">Какие навыки необходимы современному специалисту и как их развивать.</p>
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">5 марта 2024</span>
+                                <span class="blog-card__read-time">9 мин чтения</span>
+                            </div>
+                            <a href="blog/soft-skills.html" class="btn btn--outline">Читать далее</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-category="technology">
+                        <img src="img/blog/cybersecurity.jpg" alt="Кибербезопасность" class="blog-card__image">
+                        <div class="blog-card__content">
+                            <span class="blog-card__category">Технологии</span>
+                            <h3 class="blog-card__title">Основы кибербезопасности</h3>
+                            <p class="blog-card__excerpt">Как защитить себя и свои данные в цифровом мире.</p>
+                            <div class="blog-card__meta">
+                                <span class="blog-card__date">2 марта 2024</span>
+                                <span class="blog-card__read-time">11 мин чтения</span>
+                            </div>
+                            <a href="blog/cybersecurity.html" class="btn btn--outline">Читать далее</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe">
+            <div class="container">
+                <div class="subscribe-card">
+                    <h2 class="subscribe-card__title">Подпишитесь на нашу рассылку</h2>
+                    <p class="subscribe-card__description">Получайте свежие статьи и полезные материалы каждую неделю</p>
+                    <form action="thanks_form.php" method="post" class="subscribe-form">
+                        <input type="email" placeholder="Ваш email" class="subscribe-form__input" required>
+                        <label class="form-checkbox" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #666;">
+                            <input type="checkbox" required style="width: 16px; height: 16px;">
+                            <span>Я согласен с <a href="privacy-policy.html" style="color: #FF6B00; text-decoration: none;">политикой конфиденциальности</a></span>
+                        </label>
+												<button type="submit" class="btn btn--primary">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__column">
+                    <a href="index.html" class="footer__logo">PIN-UP Academy</a>
+                    <p class="footer__description">Ваш путь к профессиональному росту и развитию</p>
+                    <div class="footer__social">
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12Z" fill="white"/>
+                                <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="white"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 1C2.79086 1 1 2.79086 1 5V19C1 21.2091 2.79086 23 5 23H19C21.2091 23 23 21.2091 23 19V5C23 2.79086 21.2091 1 19 1H5ZM19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="white"/>
+                            </svg></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" fill="white"/>
+                            </svg></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Telegram">
+                            <i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.9773 4.51562L3.98441 10.5147C2.85098 10.9771 2.85879 11.6301 3.7881 11.9157L7.79692 13.1147L17.0117 7.31089C17.4861 7.02964 17.9214 7.18183 17.5633 7.48964L10.0445 14.2584H10.0429L10.0445 14.2592L9.74535 18.3771C10.1861 18.3771 10.3796 18.1755 10.6237 17.9407L12.5725 16.0459L16.6281 19.0239C17.4549 19.4771 18.0477 19.2428 18.2541 18.3787L20.9461 5.89245C21.2461 4.83433 20.4789 4.28964 19.9773 4.51562Z" fill="white"/>
+                    </svg></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title">Обучение</h3>
+                    <ul class="footer__menu">
+                        <li><a href="courses.html">Все курсы</a></li>
+                        <li><a href="webinars.html">Вебинары</a></li>
+                        <li><a href="blog.html">Блог</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title">Контакты</h3>
+                    <ul class="footer__contacts">
+                        <li>
+                            <i class="icon">📧</i>
+                            <a href="mailto:pinupacademy@gmail.com">pinupacademy@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="icon">📱</i>
+                            <a href="tel:+77054683921">+7 (705) 468-39-21</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__column">
+                    <h3 class="footer__title">Подпишитесь на новости</h3>
+                    <form action="thanks_form.php" method="post" class="footer__subscribe">
+                        <input type="email" placeholder="Ваш email" class="footer__input">
+                        <div class="form-group" style="margin: 12px 0;">
+                            <label class="form-checkbox" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #666;">
+                                <input type="checkbox" required style="width: 16px; height: 16px;">
+                                <span>Я согласен с <a href="privacy-policy.html" style="color: #FF6B00; text-decoration: none;">политикой конфиденциальности</a></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn--primary">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2024 PIN-UP Academy. Все права защищены.</p>
+                <div class="footer__links">
+                    <a href="privacy-policy.html">Политика конфиденциальности</a>
+                    <a href="terms-conditions.html">Условия использования</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

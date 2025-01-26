@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вебинары - PIN-UP Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <a href="index.html" class="logo">PIN-UP Academy</a>
+            <nav class="nav">
+                <ul class="nav__menu">
+                    <li><a href="courses.html" class="nav__link">Курсы</a></li>
+                    <li><a href="webinars.html" class="nav__link active">Вебинары</a></li>
+                    <li><a href="blog.html" class="nav__link">Блог</a></li>
+                    <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+                </ul>
+            </nav>
+            <a href="login.html" class="btn btn--primary btn--with-icon">
+                Войти
+            </a>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="catalog-hero">
+            <div class="container">
+                <div class="catalog-hero__content">
+                    <h1 class="catalog-hero__title">Онлайн-вебинары</h1>
+                    <p class="catalog-hero__description">Присоединяйтесь к интерактивным онлайн-встречам с экспертами и получайте актуальные знания</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="webinars">
+            <div class="container">
+                <div class="webinars-calendar">
+
+                    <div class="webinars-timeline">
+                        <div class="timeline-date">
+                            <div class="date-marker">25 апреля</div>
+                            <div class="webinar-card" data-category="business">
+                        <div class="webinar-card__time">19:00 - 20:30</div>
+                        <div class="webinar-card__badge">Бизнес</div>
+                        <div class="webinar-card__content">
+                            <h3 class="webinar-card__title">Запуск успешного онлайн-бизнеса</h3>
+                            <p class="webinar-card__description">Пошаговый план создания и развития прибыльного онлайн-проекта.</p>
+                            <div class="webinar-card__speaker">
+                                <img src="img/speakers/ivan.jpg" alt="Иван Сидоров" class="webinar-card__speaker-avatar">
+                                <div class="webinar-card__speaker-info">
+                                    <div class="webinar-card__speaker-name">Иван Сидоров</div>
+                                    <div class="webinar-card__speaker-position">Предприниматель, бизнес-тренер</div>
+                                </div>
+                            </div>
+                            <div class="webinar-card__footer">
+                                <div class="webinar-card__price">5 900 ₸</div>
+                                <a href="#" class="btn btn--primary">Записаться</a>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+
+                        <div class="timeline-date">
+                            <div class="date-marker">27 апреля</div>
+                            <div class="webinar-card" data-category="marketing">
+                        <div class="webinar-card__time">18:00 - 19:30</div>
+                        <div class="webinar-card__badge">Маркетинг</div>
+                        <div class="webinar-card__content">
+                            <h3 class="webinar-card__title">Эффективные стратегии SMM</h3>
+                            <p class="webinar-card__description">Актуальные тренды и инструменты продвижения в социальных сетях.</p>
+                            <div class="webinar-card__speaker">
+                                <img src="img/speakers/elena.jpg" alt="Елена Смирнова" class="webinar-card__speaker-avatar">
+                                <div class="webinar-card__speaker-info">
+                                    <div class="webinar-card__speaker-name">Елена Смирнова</div>
+                                    <div class="webinar-card__speaker-position">SMM-эксперт</div>
+                                </div>
+                            </div>
+                            <div class="webinar-card__footer">
+                                <div class="webinar-card__price">4 900 ₸</div>
+                                <a href="#" class="btn btn--primary">Записаться</a>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+
+                        <div class="timeline-date">
+                            <div class="date-marker">30 апреля</div>
+                            <div class="webinar-card" data-category="design">
+                        <div class="webinar-card__time">20:00 - 21:30</div>
+                        <div class="webinar-card__badge">Дизайн</div>
+                        <div class="webinar-card__content">
+                            <h3 class="webinar-card__title">Основы UI/UX дизайна</h3>
+                            <p class="webinar-card__description">Практическое руководство по созданию удобных интерфейсов.</p>
+                            <div class="webinar-card__speaker">
+                                <img src="img/speakers/maria.jpg" alt="Мария Иванова" class="webinar-card__speaker-avatar">
+                                <div class="webinar-card__speaker-info">
+                                    <div class="webinar-card__speaker-name">Мария Иванова</div>
+                                    <div class="webinar-card__speaker-position">UI/UX дизайнер</div>
+                                </div>
+                            </div>
+                            <div class="webinar-card__footer">
+                                <div class="webinar-card__price">Бесплатно</div>
+                                <a href="#" class="btn btn--primary">Записаться</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="subscribe">
+            <div class="container">
+                <div class="subscribe-card">
+                    <h2 class="subscribe-card__title">Не пропустите новые вебинары</h2>
+                    <p class="subscribe-card__description">Подпишитесь на рассылку и получайте уведомления о предстоящих вебинарах</p>
+                    <form action="thanks_form.php" method="post" class="subscribe-form">
+                        <input type="email" placeholder="Ваш email" class="subscribe-form__input" required>
+                        <label class="form-checkbox" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #666;">
+                            <input type="checkbox" required style="width: 16px; height: 16px;">
+                            <span>Я согласен с <a href="privacy-policy.html" style="color: #FF6B00; text-decoration: none;">политикой конфиденциальности</a></span>
+                        </label>
+												<button type="submit" class="btn btn--primary">Подписаться</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+			<div class="container">
+					<div class="footer__grid">
+							<div class="footer__column">
+									<a href="index.html" class="footer__logo">PIN-UP Academy</a>
+									<p class="footer__description">Ваш путь к профессиональному росту и развитию</p>
+									<div class="footer__social">
+											<a href="#" class="social-link" aria-label="Instagram">
+													<i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12Z" fill="white"/>
+                                <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="white"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5 1C2.79086 1 1 2.79086 1 5V19C1 21.2091 2.79086 23 5 23H19C21.2091 23 23 21.2091 23 19V5C23 2.79086 21.2091 1 19 1H5ZM19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" fill="white"/>
+                            </svg></i>
+											</a>
+											<a href="#" class="social-link" aria-label="Facebook">
+													<i class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" fill="white"/>
+                            </svg></i>
+											</a>
+											<a href="#" class="social-link" aria-label="Telegram">
+													<i class="icon">                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.9773 4.51562L3.98441 10.5147C2.85098 10.9771 2.85879 11.6301 3.7881 11.9157L7.79692 13.1147L17.0117 7.31089C17.4861 7.02964 17.9214 7.18183 17.5633 7.48964L10.0445 14.2584H10.0429L10.0445 14.2592L9.74535 18.3771C10.1861 18.3771 10.3796 18.1755 10.6237 17.9407L12.5725 16.0459L16.6281 19.0239C17.4549 19.4771 18.0477 19.2428 18.2541 18.3787L20.9461 5.89245C21.2461 4.83433 20.4789 4.28964 19.9773 4.51562Z" fill="white"/>
+                    </svg></i>
+											</a>
+									</div>
+							</div>
+							<div class="footer__column">
+									<h3 class="footer__title">Обучение</h3>
+									<ul class="footer__menu">
+											<li><a href="courses.html">Все курсы</a></li>
+											<li><a href="webinars.html">Вебинары</a></li>
+											<li><a href="blog.html">Блог</a></li>
+											<li><a href="faq.html">FAQ</a></li>
+									</ul>
+							</div>
+							<div class="footer__column">
+									<h3 class="footer__title">Контакты</h3>
+									<ul class="footer__contacts">
+											<li>
+													<i class="icon">📧</i>
+													<a href="mailto:pinupacademy@gmail.com">pinupacademy@gmail.com</a>
+											</li>
+											<li>
+													<i class="icon">📱</i>
+													<a href="tel:+77054683921">+7 (705) 468-39-21</a>
+											</li>
+									</ul>
+							</div>
+							<div class="footer__column">
+									<h3 class="footer__title">Подпишитесь на новости</h3>
+									<form action="thanks_form.php" method="post" class="footer__subscribe">
+											<input type="email" placeholder="Ваш email" class="footer__input">
+											<label class="form-checkbox" style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: #666;">
+												<input type="checkbox" required style="width: 16px; height: 16px;">
+												<span>Я согласен с <a href="privacy-policy.html" style="color: #FF6B00; text-decoration: none;">политикой конфиденциальности</a></span>
+										</label>
+											<button type="submit" class="btn btn--primary">Подписаться</button>
+									</form>
+							</div>
+					</div>
+					<div class="footer__bottom">
+							<p class="footer__copyright">© 2024 PIN-UP Academy. Все права защищены.</p>
+							<div class="footer__links">
+									<a href="privacy-policy.html">Политика конфиденциальности</a>
+									<a href="terms-conditions.html">Условия использования</a>
+							</div>
+					</div>
+			</div>
+	</footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
