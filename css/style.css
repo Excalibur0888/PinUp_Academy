@@ -1872,6 +1872,7 @@ body {
 
 .section-description {
     font-size: 18px;
+		text-align: center;
     color: var(--text-light);
     max-width: 600px;
     margin: 0 auto 30px;
@@ -3977,5 +3978,152 @@ textarea.form-input {
 
     .faq-item__question {
         font-size: 18px;
+    }
+}
+
+/* Reviews Section - Course Page */
+.reviews {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.review-card__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.review-card__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.review-card__info {
+    flex: 1;
+}
+
+.review-card__name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 4px;
+}
+
+.review-card__course {
+    font-size: 14px;
+    color: var(--primary-color);
+}
+
+.review-card__ratings {
+    margin-bottom: 24px;
+}
+
+.rating-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.rating-item:last-child {
+    margin-bottom: 0;
+}
+
+.rating-item__label {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.rating-item__stars {
+    color: var(--accent-color);
+    font-size: 16px;
+}
+
+.review-card__text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 24px;
+    font-style: italic;
+}
+
+.review-card__results {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.result-item {
+    text-align: center;
+}
+
+.result-item__label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+
+.result-item__value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+@media (max-width: 1024px) {
+    .reviews-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews {
+        padding: 60px 0;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .review-card {
+        padding: 20px;
+    }
+
+    .review-card__header {
+        margin-bottom: 20px;
+    }
+
+    .review-card__ratings {
+        margin-bottom: 20px;
+    }
+
+    .review-card__results {
+        gap: 12px;
     }
 }
