@@ -71,15 +71,15 @@
                             <h1 class="dashboard__title">Мои курсы</h1>
                             <div class="dashboard__stats">
                                 <div class="stat-card">
-                                    <span class="stat-card__value">2</span>
-                                    <span class="stat-card__label">Активных курса</span>
+                                    <span class="stat-card__value">0</span>
+                                    <span class="stat-card__label">Активных курсов</span>
                                 </div>
                                 <div class="stat-card">
-                                    <span class="stat-card__value">35%</span>
+                                    <span class="stat-card__value">0%</span>
                                     <span class="stat-card__label">Общий прогресс</span>
                                 </div>
                                 <div class="stat-card">
-                                    <span class="stat-card__value">12</span>
+                                    <span class="stat-card__value">0</span>
                                     <span class="stat-card__label">Выполнено заданий</span>
                                 </div>
                             </div>
@@ -88,17 +88,30 @@
                         <div class="course-progress-section">
                             <h2 class="section-subtitle">Активные курсы</h2>
                             <div class="course-progress-grid">
-                                <!-- Активные курсы будут добавлены динамически -->
+                                <div class="empty-state">
+                                    <div class="empty-state__icon">📚</div>
+                                    <h3 class="empty-state__title">У вас пока нет активных курсов</h3>
+                                    <p class="empty-state__description">Выберите курс из каталога и начните обучение</p>
+                                    <a href="courses.html" class="btn btn--primary">Перейти в каталог</a>
+                                </div>
                             </div>
 
                             <h2 class="section-subtitle">В обработке</h2>
                             <div class="course-progress-grid course-progress-grid--pending">
-                                <!-- Курсы в обработке будут добавлены динамически -->
+                                <div class="empty-state">
+                                    <div class="empty-state__icon">⏳</div>
+                                    <h3 class="empty-state__title">Нет курсов в обработке</h3>
+                                    <p class="empty-state__description">Здесь появятся курсы после оформления заказа</p>
+                                </div>
                             </div>
 
                             <h2 class="section-subtitle">Завершенные курсы</h2>
                             <div class="course-progress-grid">
-                                <!-- Завершенные курсы будут добавлены динамически -->
+                                <div class="empty-state">
+                                    <div class="empty-state__icon">🎓</div>
+                                    <h3 class="empty-state__title">У вас пока нет завершенных курсов</h3>
+                                    <p class="empty-state__description">Завершите обучение, чтобы увидеть их здесь</p>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -108,46 +121,17 @@
                             <h1 class="dashboard__title">Сертификаты</h1>
                             <div class="dashboard__stats">
                                 <div class="stat-card">
-                                    <span class="stat-card__value">1</span>
+                                    <span class="stat-card__value">0</span>
                                     <span class="stat-card__label">Получено сертификатов</span>
                                 </div>
                             </div>
                         </div>
                         <div class="certificates-grid">
-                            <div class="certificate-card">
-                                <div class="certificate-card__preview">
-                                    <img src="img/certificate-preview.jpg" alt="Сертификат по финансовой грамотности" class="certificate-card__image">
-                                    <div class="certificate-card__overlay">
-                                        <div class="certificate-card__actions">
-                                            <button class="btn btn--outline btn--icon" title="Поделиться">
-                                                <i class="icon">📤</i>
-                                            </button>
-                                            <a href="index.html" class="btn btn--primary" download>
-                                                Скачать PDF
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="certificate-card__content">
-                                    <div class="certificate-card__header">
-                                        <span class="certificate-card__badge">Сертификат</span>
-                                        <h3 class="certificate-card__title">Финансовая грамотность</h3>
-                                    </div>
-                                    <div class="certificate-card__meta">
-                                        <div class="certificate-card__info">
-                                            <i class="icon">📅</i>
-                                            <span>Получен: 15 марта 2024</span>
-                                        </div>
-                                        <div class="certificate-card__info">
-                                            <i class="icon">🔑</i>
-                                            <span>ID: CERT-2024-001</span>
-                                        </div>
-                                        <div class="certificate-card__info">
-                                            <i class="icon">⭐</i>
-                                            <span>С отличием</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="empty-state">
+                                <div class="empty-state__icon">🏆</div>
+                                <h3 class="empty-state__title">У вас пока нет сертификатов</h3>
+                                <p class="empty-state__description">Завершите курс, чтобы получить сертификат</p>
+                                <a href="courses.html" class="btn btn--primary">Начать обучение</a>
                             </div>
                         </div>
                     </section>
@@ -202,7 +186,6 @@
                             </form>
                         </div>
                     </section>
-
                 </div>
             </div>
         </div>

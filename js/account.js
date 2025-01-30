@@ -82,8 +82,8 @@ class Account {
         const pendingCourses = JSON.parse(localStorage.getItem(`pending_courses_${this.user.email}`)) || [];
         
         return {
-            active: ['digital-marketing', 'web-design'],
-            completed: ['finance-basics'],
+            active: [],
+            completed: [],
             pending: pendingCourses
         };
     }
@@ -104,7 +104,8 @@ class Account {
         });
 
         // Вычисляем средний прогресс
-        const averageProgress = Math.round(totalProgress / (userCourses.active.length + userCourses.completed.length));
+        const totalCourses = userCourses.active.length + userCourses.completed.length;
+        const averageProgress = totalCourses > 0 ? Math.round(totalProgress / totalCourses) : 0;
 
         // Обновляем статистику на странице
         document.querySelector('.stat-card:nth-child(1) .stat-card__value').textContent = activeCourses;
@@ -113,38 +114,42 @@ class Account {
     }
 
     renderCourses(userCourses) {
-        // Отображаем активные курсы
-        const activeCoursesList = userCourses.active
-            .map(courseId => coursesData[courseId])
-            .map(course => this.createCourseCard(course, 'active'))
-            .join('');
+        // Отображаем активные курсы только если они есть
+        if (userCourses.active.length > 0) {
+            const activeCoursesList = userCourses.active
+                .map(courseId => coursesData[courseId])
+                .map(course => this.createCourseCard(course, 'active'))
+                .join('');
 
-        // Отображаем курсы в обработке
-        const pendingCoursesList = userCourses.pending
-            .map(course => this.createCourseCard(course, 'pending'))
-            .join('');
-
-        // Отображаем завершенные курсы
-        const completedCoursesList = userCourses.completed
-            .map(courseId => coursesData[courseId])
-            .map(course => this.createCourseCard(course, 'completed'))
-            .join('');
-
-        // Обновляем содержимое на странице
-        const activeCoursesContainer = document.querySelector('.course-progress-grid');
-        const pendingCoursesContainer = document.querySelector('.course-progress-grid--pending');
-        const completedCoursesContainer = document.querySelector('.course-progress-grid:last-child');
-
-        if (activeCoursesContainer) {
-            activeCoursesContainer.innerHTML = activeCoursesList || '<p class="courses-empty">Нет активных курсов</p>';
+            const activeCoursesContainer = document.querySelector('.course-progress-grid');
+            if (activeCoursesContainer) {
+                activeCoursesContainer.innerHTML = activeCoursesList;
+            }
         }
 
-        if (pendingCoursesContainer) {
-            pendingCoursesContainer.innerHTML = pendingCoursesList || '<p class="courses-empty">Нет курсов в обработке</p>';
+        // Отображаем курсы в обработке только если они есть
+        if (userCourses.pending.length > 0) {
+            const pendingCoursesList = userCourses.pending
+                .map(course => this.createCourseCard(course, 'pending'))
+                .join('');
+
+            const pendingCoursesContainer = document.querySelector('.course-progress-grid--pending');
+            if (pendingCoursesContainer) {
+                pendingCoursesContainer.innerHTML = pendingCoursesList;
+            }
         }
 
-        if (completedCoursesContainer) {
-            completedCoursesContainer.innerHTML = completedCoursesList || '<p class="courses-empty">Нет завершенных курсов</p>';
+        // Отображаем завершенные курсы только если они есть
+        if (userCourses.completed.length > 0) {
+            const completedCoursesList = userCourses.completed
+                .map(courseId => coursesData[courseId])
+                .map(course => this.createCourseCard(course, 'completed'))
+                .join('');
+
+            const completedCoursesContainer = document.querySelector('.course-progress-grid:last-child');
+            if (completedCoursesContainer) {
+                completedCoursesContainer.innerHTML = completedCoursesList;
+            }
         }
     }
 

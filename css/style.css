@@ -836,6 +836,10 @@ body {
     transition: var(--transition);
 }
 
+.social-link svg {
+	margin-top: 8px;
+}
+
 .social-link:hover {
     background: var(--gray-dark);
     transform: translateY(-3px);
@@ -4380,5 +4384,53 @@ textarea.form-input {
 
     .timeline-title {
         font-size: 20px;
+    }
+}
+
+.empty-state {
+    text-align: center;
+    padding: 48px;
+    background: var(--gray-light);
+    border-radius: 12px;
+    width: 100%;
+}
+
+.empty-state__icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.empty-state__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--gray-dark);
+    margin-bottom: 8px;
+}
+
+.empty-state__description {
+    font-size: 16px;
+    color: var(--gray);
+    margin-bottom: 24px;
+}
+
+.empty-state .btn {
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .empty-state {
+        padding: 32px;
+    }
+
+    .empty-state__icon {
+        font-size: 36px;
+    }
+
+    .empty-state__title {
+        font-size: 20px;
+    }
+
+    .empty-state__description {
+        font-size: 14px;
     }
 }
